@@ -1,11 +1,11 @@
-require('./demo.css')
+require('./demo.css');
 
-var React = require('react')
-var ReactDOM = require('react-dom')
-var ReactPivot = require('..')
+var React = require('react');
+var ReactDOM = require('react-dom');
+var ReactPivot = require('..');
 
-var gh = require('./gh.jsx')
-var data = require('./data.json')
+var gh = require('./gh.jsx');
+var data = require('./data.json');
 
 var dimensions = [
   {value: 'firstName', title: 'First Name'},
@@ -17,13 +17,13 @@ var dimensions = [
   {value: function(row) {
     return row.transaction.type
   }, title: 'Transaction Type'}
-]
+];
 
 var reduce = function(row, memo) {
-  memo.count = (memo.count || 0) + 1
-  memo.amountTotal = (memo.amountTotal || 0) + parseFloat(row.transaction.amount)
+  memo.count = (memo.count || 0) + 1;
+  memo.amountTotal = (memo.amountTotal || 0) + parseFloat(row.transaction.amount);
   return memo
-}
+};
 
 var calculations = [
   {
@@ -49,14 +49,14 @@ var calculations = [
     },
     className: 'alignRight'
   }
-]
+];
 
 var Demo = React.createClass({
   getInitialState: function() {
     return {showInput: false}
   },
   toggleShow: function() {
-    var showInput = this.state.showInput
+    var showInput = this.state.showInput;
     this.setState({showInput: !showInput})
   },
   render: function() {
@@ -105,12 +105,12 @@ var Demo = React.createClass({
       </div>
     )
   }
-})
+});
 
-var el = document.createElement('div')
-document.body.appendChild(el)
+var el = document.createElement('div');
+document.body.appendChild(el);
 
 ReactDOM.render(
   <Demo />,
   el
-)
+);

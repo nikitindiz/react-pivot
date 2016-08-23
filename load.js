@@ -1,9 +1,10 @@
-var React = require('react')
-var ReactPivot = require('./index.jsx')
+var React = require('react');
+var render = require('react-dom').render;
+var ReactPivot = require('./index.jsx');
 
 module.exports = function (el, opts) {
-  React.render(
+  render(
     React.createElement(ReactPivot, opts),
     el
   )
-}
+};
